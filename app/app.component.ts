@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
-
-export class Recipe {
-  id: number;
-  title: string;
-  ingredients: string[];
-  description: string;
-}
+import { Recipe } from './recipe';
 
 const RECIPES: Recipe[] = [
   { id: 1, title: 'Vegetable Soup Stock', ingredients: ['1 Medium Onion', '1 Large Leek', '1 Fennel (bulb only)', '3 Large Celery Stalks', '1 Large Parsnip', 'Salt', '1 Bay Leaf', '6 Juniper Berries', 'Vermouth or Cooking Sherry', '3 Sprigs Thyme', '1 Sprig Oregano', '1 Small Potato', 'Vegetable trimmings'], description: 'Dice and saute onion, leek, fennel and celery in oil until onion translucent. Add salt to taste and cook for 2 minutes. Add diced parsnip and any other hard vegetable trimmings. Add juniper berries, peppercorn, thyme, oregano and bay leaf and cook on high for 5 minutes. Add vermouth or cooking sherry. Fill pot with water and add rest of ingredients plus any leafy vegetable trimmings. Parsley stalks are particularly nice. Simmer for 1 hour or until a nice taste develops.' },
@@ -21,13 +15,7 @@ const RECIPES: Recipe[] = [
       <ul>
         <li *ngFor="let recipe of recipes" [class.selected]="recipe === selectedRecipe" (click)="onSelect(recipe)"><span class="recipeNumber">{{recipe.id}} - </span> {{recipe.title}}</li>
       </ul>
-      <div *ngIf="selectedRecipe">
-        <h1>{{selectedRecipe.title}}</h1>
-        <h3>Ingredients</h3>
-        <ul>
-          <li *ngFor="let recipe of recipes">{{recipe.ingredients}}</li>
-        </ul>
-      </div>
+      <my-recipe-detail [recipe]="selectedRecipe"></my-recipe-detail>
     </div>
   `
 })
