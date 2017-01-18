@@ -20,3 +20,6 @@ export class RecipeDetailComponent {
   @Input()
   recipe: Recipe;
 }
+
+
+// [(ngModel)]="recipe.ingredients"
