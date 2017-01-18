@@ -19,6 +19,8 @@ import { Recipe } from './recipe';
 export class RecipeDetailComponent {
   @Input()
   recipe: Recipe;
+
+
 }
 
 

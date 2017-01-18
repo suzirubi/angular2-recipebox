@@ -12,7 +12,7 @@ import { OnInit } from '@angular/core';
       <h1>Suzi's Secret Recipe Box <span class="time">{{month}}-{{day}}-{{year}}</span></h1>
       <h3>Soup Recipes</h3>
       <ul>
-        <li *ngFor="let recipe of recipes" [class.selected]="recipe === selectedRecipe" (click)="onSelect(recipe)"><span class="recipeNumber">{{recipe.id}} - </span> {{recipe.title}}</li>
+        <li *ngFor="let recipe of recipes" [class.selected]="recipe === selectedRecipe" (click)="onSelect(recipe)"><span class="recipeNumber">{{recipe.id}} - </span> {{recipe.title}} <button (click)="editRecipe()">Edit Recipe</button></li>
       </ul>
       <my-recipe-detail [recipe]="selectedRecipe"></my-recipe-detail>
     </div>
@@ -41,4 +41,9 @@ export class AppComponent implements OnInit {
   onSelect(recipe: Recipe): void {
     this.selectedRecipe = recipe;
   }
+
+  editRecipe() {
+    alert("You just requested to edit a Recipe!")
+  }
+
 }
