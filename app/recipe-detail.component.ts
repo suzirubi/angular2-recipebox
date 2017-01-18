@@ -10,7 +10,7 @@ import { Recipe } from './recipe';
       <h1>{{recipe.title}}</h1>
       <h3>Ingredients</h3>
       <ul>
-        <li>{{recipe.ingredients}}</li>
+        <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
       </ul>
     </div>
   `
